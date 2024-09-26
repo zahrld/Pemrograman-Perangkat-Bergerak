@@ -1,0 +1,94 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  final String nim = "K3522084";
+  final String name = "Zahra Arf Walidain";
+
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false, // Hilangkan banner Debug
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(nim),
+          backgroundColor: const Color.fromARGB(255, 238, 147, 236),
+        ),
+        drawer: Drawer(
+          child: SafeArea(
+            // Bungkus ListView dengan SafeArea
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                ListTile(
+                  leading: const Icon(Icons.list),
+                  title: const Text('Lists'),
+                  onTap: () {
+                    // Action for Lists
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.settings),
+                  title: const Text('Settings'),
+                  onTap: () {
+                    // Action for Settings
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.login),
+                  title: const Text('Login'),
+                  onTap: () {
+                    // Action for Login
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+        body: Center(
+          child: Text(
+            name,
+            style: const TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 204, 13, 201),
+            ),
+          ),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.add),
+                onPressed: () {
+                  // Action for add button
+                },
+                tooltip: 'Tambah',
+              ),
+              FloatingActionButton(
+                onPressed: () {
+                  // Action for search button
+                },
+                tooltip: 'Cari',
+                child: const Icon(Icons.search),
+              ),
+              IconButton(
+                icon: const Icon(Icons.delete),
+                onPressed: () {
+                  // Action for delete button
+                },
+                tooltip: 'Hapus',
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
